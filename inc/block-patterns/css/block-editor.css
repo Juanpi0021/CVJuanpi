@@ -1,0 +1,71 @@
+/*----- Banner Section -----*/
+.banner-section{
+  margin: 0;
+}
+.banner-section .banner-box h1, .features-section h2, .about-section h3, .about-section h4, .banner-box .wp-block-button__link, .about-section .wp-block-button__link{
+  font-family: 'Oswald', sans-serif;
+}
+.banner-box{
+  border-left: solid 5px;
+  border-image: linear-gradient(to bottom, #de40bb, #feb75b ) 1 100%;
+}
+.banner-section .banner-box p, .features-section p, .about-section p{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.banner-box .wp-block-button__link, .about-section .wp-block-button__link{
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  margin-top: 10PX;
+}
+.banner-box .block-editor-rich-text__editable.wp-block-button__link:hover{
+  border: solid 2px !important;
+  background: transparent !important;
+}
+.about-section .block-editor-rich-text__editable.wp-block-button__link:hover{
+  border: solid 2px !important;
+  background: #222222 !important;
+} 
+.banner-section{
+  min-height: 600px !important;
+}
+/*---- About Section -----*/
+.about-section h3:after{
+  content: "";
+  width: 10%;
+  background: linear-gradient(to left, #de40bb, #feb75b );
+  display: block;
+  height: 5px;
+  margin-top: 50px;
+  border-radius: 30px;
+}
+.wp-block{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+/*----- Media CSS -----*/
+@media screen and (max-width: 768px) and (min-width: 576px){
+  .banner-section .banner-box {
+    flex-basis: 100% !important;
+  }
+  .features-section .feature-box{
+    flex-basis: 30.33% !important;
+  }
+  .features-section .feature-box:nth-child(2n){
+    margin: 0 20px;
+  }
+  .about-section h3:after{
+    width: 15%;
+  }
+  .banner-section .wp-block-columns, .about-section .wp-block-columns{
+    margin: 0 !important;
+  }
+}
+@media screen and (max-width: 575px){
+  .banner-section .wp-block-columns, .about-section .wp-block-columns{
+    margin: 0 !important;
+  }
+  .about-section h3:after{
+    width: 15%;
+  }
+}

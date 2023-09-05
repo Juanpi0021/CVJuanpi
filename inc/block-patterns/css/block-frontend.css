@@ -1,0 +1,117 @@
+/*----- Banner Section -----*/
+.banner-section, .features-section, .about-section{
+  width: auto;
+  height: auto;
+}
+.banner-box{
+  border-left: solid 5px;
+  border-image: linear-gradient(to bottom, #de40bb, #feb75b ) 1 100%;
+  margin-left: 12% !important;
+}
+.banner-box .wp-block-button__link, .about-section .wp-block-button__link{
+  padding: 15px 30px;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.banner-box .wp-block-button__link:hover{
+  border: solid 2px !important;
+  background: transparent !important;
+}
+.about-section .wp-block-button__link:hover{
+  border: solid 2px !important;
+  background: #222222 !important;
+} 
+/*----- Features section -----*/
+.features-section p{
+  letter-spacing: 0.5px;
+  text-align: left !important;
+}
+.banner-section{
+  min-height: 600px !important;
+}
+.features-section .wp-block-columns{
+  width: 72%;
+  margin: 0 auto !important;
+}
+/*---- About Section -----*/
+.about-section h3:after{
+  content: "";
+  width: 10%;
+  background: linear-gradient(to left, #de40bb, #feb75b );
+  display: block;
+  height: 5px;
+  margin-top: 12px;
+  border-radius: 30px;
+}
+
+/*----- Media CSS -----*/
+@media screen and (max-width: 768px) and (min-width: 576px){
+  .banner-section .banner-box {
+    flex-basis: 100% !important;
+  }
+  .features-section .feature-box{
+    flex-basis: 30.33% !important;
+  }
+  .features-section .feature-box:nth-child(2n){
+    margin: 0 20px;
+  }
+  .about-section h3:after{
+    width: 15%;
+  }
+  .features-section .wp-block-columns{
+    flex-wrap: nowrap !important;
+  }
+}
+@media screen and (max-width: 575px){
+  .banner-section .banner-box p{
+    display: none;
+  }
+  .banner-section .banner-box h1{
+    font-size: 30px !important;
+  }
+}
+@media screen and (max-width: 720px) {
+  .banner-section {
+    min-height: 300px !important;
+  }
+  .banner-box{
+    margin-left: 0% !important;
+  }
+  .features-section .wp-block-columns{
+    width: 100%;
+  }
+  .about-section .wp-block-columns{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 80px !important;
+    margin-right: 80px !important;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 767px) {
+  .banner-section {
+    min-height: 300px !important;
+  }
+  .features-section .wp-block-columns{
+    width: 100%;
+  }
+  .about-section .wp-block-columns{
+    flex-wrap: nowrap !important;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 1000px) {
+  .banner-section {
+    min-height: 450px !important;
+  }
+  .features-section .wp-block-columns{
+    width: 100%;
+  }
+  .banner-box{
+    margin-left: -8% !important;
+  }
+}
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+  .banner-section {
+    min-height: 450px !important;
+  }
+
+}
