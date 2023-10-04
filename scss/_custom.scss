@@ -22,21 +22,23 @@ body {
 .heading-black {
     font-weight: 800;
 }
-.slider{
-    overflow:hidden;
+
+/* Estilos para el carrusel */
+.carrusel-container {
+    width: 300px;
+    overflow: hidden;
 }
-.slider--inner {
+
+.carrusel {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 400px;
-    transition:all 0.3s ease-in;
-    align-items: center;
+    transition: transform 0.5s ease-in-out;
 }
-.slider--inner img{
-    aspect-ratio: 16/9;
-    object-fit: cover;
+
+.imagen-carrusel {
+    width: 300px;
+    height: 200px;
 }
+
 img{
     width: 100%;
 }
