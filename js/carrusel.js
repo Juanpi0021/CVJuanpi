@@ -1,24 +1,28 @@
-const carrusel = document.getElementById("carrusel");
-const imagenes = document.querySelectorAll(".imagen-carrusel");
-const botonAnterior = document.getElementById("anterior");
-const botonSiguiente = document.getElementById("siguiente");
 
-let index = 0;
+let currentSlide = 0;
+const slides = document.querySelectorAll(".carousel-slide img");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-function cambiarImagen(direccion) {
-    index += direccion;
-    if (index < 0) {
-        index = imagenes.length - 1;
-    } else if (index >= imagenes.length) {
-        index = 0;
-    }
-
-    const desplazamiento = -index * 300; // Ancho de cada imagen
-    carrusel.style.transform = `translateX(${desplazamiento}px)`;
+function showSlide(n) {
+  if (n < 0) {
+    currentSlide = slides.length - 1;
+  } else if (n >= slides.length) {
+    currentSlide = 0;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.transform = "translateX(-" + currentSlide + "00%)";
+  }
 }
 
-botonAnterior.addEventListener("click", () => cambiarImagen(-1));
-botonSiguiente.addEventListener("click", () => cambiarImagen(1));
+prevBtn.addEventListener("click", () => {
+  currentSlide--;
+  showSlide(currentSlide);
+});
 
-// Iniciar con la primera imagen
-cambiarImagen(0);
+nextBtn.addEventListener("click", () => {
+  currentSlide++;
+  showSlide(currentSlide);
+});
+
+showSlide(currentSlide);
