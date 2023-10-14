@@ -1,5 +1,7 @@
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const startBtn = document.getElementById("startBtn");
+const stopBtn = document.getElementById("stopBtn");
 const slides = document.querySelectorAll(".carousel-slide");
 let currentIndex = 0;
 let interval;
@@ -13,13 +15,13 @@ function showSlide(index) {
 
 // Función para avanzar a la siguiente diapositiva
 function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+    currentIndex = ((currentIndex + 2) % (slides.length*2));
     showSlide(currentIndex);
 }
 
 // Función para retroceder a la diapositiva anterior
 function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    currentIndex = (currentIndex - 2 + (slides.length*2)) % (slides.length*2);
     showSlide(currentIndex);
 }
 
@@ -43,6 +45,15 @@ prevBtn.addEventListener("click", () => {
 nextBtn.addEventListener("click", () => {
     nextSlide();
     stopAutoSlide();
+});
+
+startBtn.addEventListener("click", () => {
+  startAutoSlide();
+});
+
+stopBtn.addEventListener("click", () => {
+
+  stopAutoSlide();
 });
 
 // Mostrar la primera diapositiva al cargar la página
