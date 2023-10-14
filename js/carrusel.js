@@ -1,28 +1,52 @@
-
-let currentSlide = 0;
-const slides = document.querySelectorAll(".carousel-slide img");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const slides = document.querySelectorAll(".carousel-slide");
+let currentIndex = 0;
+let interval;
 
-function showSlide(n) {
-  if (n < 0) {
-    currentSlide = slides.length - 1;
-  } else if (n >= slides.length) {
-    currentSlide = 0;
-  }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.transform = "translateX(-" + currentSlide + "00%)";
-  }
+// Función para mostrar una diapositiva en función del índice con un efecto de desplazamiento suave
+function showSlide(index) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.transform = `translateX(${100 * (i - index)}%)`;
+    }
 }
 
+// Función para avanzar a la siguiente diapositiva
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
+
+// Función para retroceder a la diapositiva anterior
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+}
+
+// Función para iniciar el carrusel automático
+function startAutoSlide() {
+    interval = setInterval(nextSlide, 3000); // Cambia la imagen cada 3 segundos (3000 ms)
+}
+
+// Función para detener el carrusel automático
+function stopAutoSlide() {
+    clearInterval(interval);
+}
+
+// Evento al hacer clic en el botón "Anterior"
 prevBtn.addEventListener("click", () => {
-  currentSlide--;
-  showSlide(currentSlide);
+    prevSlide();
+    stopAutoSlide();
 });
 
+// Evento al hacer clic en el botón "Siguiente"
 nextBtn.addEventListener("click", () => {
-  currentSlide++;
-  showSlide(currentSlide);
+    nextSlide();
+    stopAutoSlide();
 });
 
-showSlide(currentSlide);
+// Mostrar la primera diapositiva al cargar la página
+showSlide(currentIndex);
+
+// Iniciar el carrusel automático cuando se carga la página
+startAutoSlide();
